@@ -8,7 +8,7 @@ import java.util.Set;
 public class Day1 {
 
     public Long computeAnswer1(String fileName) throws IOException {
-        BufferedReader reader = getBufferedReader(fileName);
+        BufferedReader reader = IOUtils.getBufferedReader(fileName);
 
         Set<Long> numbers = new HashSet<>();
 
@@ -26,7 +26,7 @@ public class Day1 {
     }
 
     public Long computeAnswer2(String fileName) throws IOException {
-        BufferedReader reader = getBufferedReader(fileName);
+        BufferedReader reader = IOUtils.getBufferedReader(fileName);
         Set<Long> numbers = new HashSet<>();
         for(String line = reader.readLine();
             line != null && !line.isEmpty();
@@ -56,12 +56,6 @@ public class Day1 {
         }
 
         return null;
-    }
-
-    private BufferedReader getBufferedReader(String fileName) {
-        InputStream cpResource = this.getClass().getClassLoader().getResourceAsStream(fileName);
-        Objects.requireNonNull(cpResource, "Not Found: " + fileName);
-        return new BufferedReader(new InputStreamReader(cpResource));
     }
 
     public static void main(String[] args) throws IOException {
